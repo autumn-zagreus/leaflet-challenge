@@ -5,6 +5,7 @@ var queryUrl = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_we
 d3.json(queryUrl).then(function (data) {
   // Once we get a response, send the data.features object to the createFeatures function.
   createFeatures(data.features);
+  console.log(data);
 });
 
 function createFeatures(earthquakeData) {
@@ -12,7 +13,11 @@ function createFeatures(earthquakeData) {
   // Define a function that we want to run once for each feature in the features array.
   // Give each feature a popup that describes the place and time of the earthquake.
   function onEachFeature(feature, layer) {
-    layer.bindPopup(`<h3>${feature.properties.place}</h3><hr><p>${new Date(feature.properties.time)}</p>`);
+    L.marker([feature.geometry.coordinates[0], feature.geometry.coordinates[1]], {
+        color: "red",
+        size: [feature.properties.mag, feature.properties.mag],
+      });
+    layer.bindPopup(`<h3>${feature.properties.place}</h3><hr><h4>Magnitude ${feature.properties.mag}</h4><p>${new Date(feature.properties.time)}</p>`);
   }
 
   // Create a GeoJSON layer that contains the features array on the earthquakeData object.
@@ -49,11 +54,10 @@ function createMap(earthquakes) {
 
   // Create our map, giving it the streetmap and earthquakes layers to display on load.
   var myMap = L.map("map", {
-    center: [
-      0, 0
-    ],
+    center: [0, 0],
     zoom: 2.5,
-    layers: [street, earthquakes]
+    layers: [street, earthquakes],
+    markers: marker
   });
 
   // Create a layer control.
