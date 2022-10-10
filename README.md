@@ -1,3 +1,7 @@
+For student's notes, please scroll to end of README file.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
 # Unit 15 Homework: Visualizing Data with Leaflet
 
 ## Background
@@ -82,3 +86,7 @@ Perform the following tasks:
 
 ___
 © 2022 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Start of notes:
