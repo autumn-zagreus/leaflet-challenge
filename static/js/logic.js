@@ -13,9 +13,12 @@ function createFeatures(earthquakeData) {
   // Define a function that we want to run once for each feature in the features array.
   // Give each feature a popup that describes the place and time of the earthquake.
   function onEachFeature(feature, layer) {
+    // create Layer group
+    // take each marker and ADD the circles
+    // do this near line 3 - make a var to hold layergroup and then add the markers to the layergroup
     var marker = L.circle([feature.geometry.coordinates[0], feature.geometry.coordinates[1]], {
-        color: "red",
-        fillcolor: "red",
+        color: "red", // change this to a function of the depth (feature.geometry.coordinates[2])
+        fillcolor: "red", // same here
         radius: feature.properties.mag,
       });
     layer.bindPopup(`<h3>${feature.properties.place}</h3><hr><h4>Magnitude: ${feature.properties.mag}, Depth: ${feature.geometry.coordinates[2]}</h4><p>${new Date(feature.properties.time)}</p>`);
