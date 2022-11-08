@@ -91,3 +91,6 @@ ___
 
 Start of notes:
 Using mainly the GeoJSON code as a starting skeleton to get the map with the pop-ups, however I am having trouble with the markers. They are blue pins of equal size ,but I would like to change them according to instructions, since the size should coordinate with the magnitude, and darker colors should be for deeper earthquake locations (the third coordinate).
+
+Was able to complete everything except the legend, couldn't quite figure out why that one wasn't working, but decided to hand it in anyway.
+Included a config.js file (empty for the most part) because the console wouldn't stop bugging me about not having one. It is not used, it only exists so the thing doesn't break on my machine.
